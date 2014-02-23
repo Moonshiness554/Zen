@@ -5,7 +5,14 @@ Zen is a graphics utility for teaching about object-oriented programming and mod
 ![Flappy Bird](http://i.imgur.com/3lRx3Ti.jpg)
 
 
-Zen is adapted from Lawrence Angrave's Zen library, and has been heavily modified and extended to make it suitable for teaching about object-oriented design patterns and real-time Internet connectivity. Also, some much-needed abstraction has been added in to make it more suitable for teaching younger students about Java programming.
+Zen is adapted from Lawrence Angrave's Zen library, and has been heavily modified and extended to make it suitable for teaching about object-oriented design patterns and real-time Internet connectivity. It integrates the [Firebase API](https://firebase.com/docs) to allow real-time Internet communication in Zen games. 
+
+Zen was designed as an alternative to [Greenfoot](http://greenfoot.org/door), with a couple notable advantages:
+  * can be easily integrated to any Java library. The current version of Zen requires the Firebase API, and makes it incredibly easy to make multiplayer games.
+  * you're not locked into a specific IDE - I recommend using [Eclipse](http://eclipse.org).
+  * no predefined structure that you are forced to follow. There are a couple abstract classes *to make your life easier*, but you can make an application using only the basic graphics functions if you so desire.
+  * heavier emphasis on visualization.
+  * no built-in collision detection - forces students to learn how to implement it on their own.
 
 ## Getting Started
 
