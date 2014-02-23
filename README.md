@@ -5,7 +5,7 @@ Zen
 
 Zen is a graphics utility for teaching about object-oriented programming and modular game design with Java. If you're looking for examples, check out the [Zen examples repository](https://github.com/keshavsaharia/ZenExamples).
 
-# Getting Started
+## Getting Started
 
 These instructions are for Eclipse, but they can be easily changed to work with any IDE.
 
@@ -17,9 +17,9 @@ These instructions are for Eclipse, but they can be easily changed to work with 
 6. You'll see some errors - that's because we haven't loaded in the Firebase library, which allows Zen to communicate in real time over the Internet. Copy the firebase.jar by dragging it to **your project folder** (not to a package or to the src folder). Then, right click on firebase.jar and click on "Build Path > Add to Build Path".
 7. You should be all set! If you have any troubles, issues, or questions, you are more than welcome to email me at keshav@techlabeducation.com. 
 
-# Anatomy of a Zen Game
+## Anatomy of a Zen Game
 
-## Setting up the main game class
+### Setting up the main game class
 
 Start by making a new package (right click on the "src" folder, then click "New > Package"). Name it whatever you want to call your game - I'm calling mine "FlappyBird". Every class for your game should go in this package, so when you make a new class you should be right clicking on the "FlappyBird" package and not on "src".
 
@@ -50,7 +50,7 @@ public class FlappyBird extends ZenGame {
 
 When the game is run, ```void setup()``` is called once, then ```void loop()``` is called repeatedly. The constructor ```public FlappyBird()``` is optional, but is useful if you want to change the settings for the window. This structure was largely inspired by the setup of the [Arduino IDE](http://arduino.cc).
 
-## Adding sprites
+### Adding sprites
 
 Once you have the game laid out, you need to create the moving objects in your game. In Zen, these moving objects are called "sprites", a common term that any student who has done Scratch will be familiar with.
 
@@ -104,7 +104,7 @@ public class Pipe extends ZenSprite {
 }
 ```
 
-## Drawing shapes
+### Drawing shapes
 
 As you can see from the draw function, Zen uses objects to represent shapes on the screen. In general, if you want a certain shape like a circle to show up on the screen:
 
@@ -120,7 +120,7 @@ Check the documentation for more information on the different shapes and constru
 Zen.draw(c);
 ```
 
-## Coloring shapes
+### Coloring shapes
 
 Coloring in Zen works as if you are an artist with a palette of colors. Before you draw something, you can select the color you want to draw with using
 ```java
@@ -132,7 +132,7 @@ Zen.addColor("foo", red, green, blue);
 ```
 Where you replace red, green, and blue with the RGB values of the color you want to add. You can look up colors on [this website](http://html-color-codes.info) or create color schemes on [this website](http://www.colorschemer.com/online.html).
 
-## Getting key presses
+### Getting key presses
 
 To find out if a key is pressed, use ```Zen.isKeyPressed( key )```. The key is a String, which can either be a letter ("a" - "z"), a number ("0" - "9"), or a special key: ```"left"```, ```"right"```, ```"up"```, ```"down"```, ```"space"```, ```"escape"```, ```"tab"```, ```"shift"```, ```"control"```, ```"alt"```, ```"delete"```, ```"home"```.
 
@@ -140,7 +140,7 @@ To find out if a key is pressed, use ```Zen.isKeyPressed( key )```. The key is a
 Zen.isKeyPressed("a")
 ```
 
-## There's more!
+### There's more!
 
 This readme is a bit incomplete - I'll update it with
 
@@ -148,12 +148,12 @@ This readme is a bit incomplete - I'll update it with
 [ ] - how to use the mouse
 [ ] - how to handle games that lag
 
-Curriculum
-===
+## Curriculum
+
 We have an extensive curriculum for Zen that is used at my education startup, [TechLab Education](http://www.techlabeducation.com). If you are an education organization or public/private school looking to license our curriculum, send an email to [sales@techlabeducation.com](mailto:sales@techlabeducation.com) for licensing options. If you are a passionate teacher from an underfunded school district who is looking to start a Java afterschool program or robotics club, let us know, because we love supporting people like you and would be happy to provide our teaching material to you at no cost. 
 
 Our curriculum comes with professional development opportunities at our Saratoga facility. Even if you've never programmed before, you can get your kids making awesome 2D games in no time.
 
-Contributing
-===
+## Contributing
+
 Zen is just a layer of abstraction on top of JFrame. Some parts are nicely commented, while others have no commenting whatsoever. The goal is to make a powerful education tool that can be extended easily, so there will be much more documentation coming soon.
