@@ -1,9 +1,8 @@
 Zen
 ===
+Zen is a graphics utility for teaching about object-oriented programming and modular game design with Java. The core Zen graphics lives in the Zen folder, while the other folders are example games created with Zen.
 
-# Overview
-
-Zen is a graphics utility for teaching about object-oriented programming and modular game design with Java. If you're looking for examples, check out the [Zen examples repository](https://github.com/keshavsaharia/ZenExamples).
+Zen is adapted from Lawrence Angrave's Zen library, and has been heavily modified and extended to make it suitable for teaching about object-oriented design patterns and real-time Internet connectivity. Also, some much-needed abstraction has been added in to make it more suitable for teaching younger students about Java programming.
 
 ## Getting Started
 
