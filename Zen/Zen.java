@@ -41,6 +41,13 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
+/**
+ * This is the core Zen library, heavily modified from the original by Lawrence Angrave of
+ * the University of Illinois at Urbana Champaign. Once I find his original license, I'll
+ * add it here. 
+ * @author angrave
+ */
+
 @SuppressWarnings("serial")
 public class Zen extends JApplet {
 	
@@ -260,150 +267,150 @@ public class Zen extends JApplet {
 		keyMap.put("delete", KeyEvent.VK_DELETE);
 		keyMap.put("home", KeyEvent.VK_HOME);
 		colorMap = new HashMap <String, Integer> ();
-		initializeColor("alice blue", 240, 248, 255);
-		initializeColor("antique white", 250, 235, 215);
-		initializeColor("aqua", 0, 255, 255);
-		initializeColor("aquamarine", 127, 255, 212);
-		initializeColor("azure", 240, 255, 255);
-		initializeColor("beige", 245, 245, 220);
-		initializeColor("bisque", 255, 228, 196);
-		initializeColor("black", 0, 0, 0);
-		initializeColor("blanched almond", 255, 235, 205);
-		initializeColor("blue", 0, 0, 255);
-		initializeColor("blue violet", 138, 43, 226);
-		initializeColor("brown", 165, 42, 42);
-		initializeColor("burlywood", 222, 184, 135);
-		initializeColor("cadet blue", 95, 158, 160);
-		initializeColor("chartreuse", 127, 255, 0);
-		initializeColor("chocolate", 210, 105, 30);
-		initializeColor("coral", 255, 127, 80);
-		initializeColor("cornflower blue", 100, 149, 237);
-		initializeColor("cornsilk", 255, 248, 220);
-		initializeColor("cyan", 0, 255, 255);
-		initializeColor("dark blue", 0, 0, 139);
-		initializeColor("dark cyan", 0, 139, 139);
-		initializeColor("dark goldenrod", 184, 134, 11);
-		initializeColor("dark gray", 169, 169, 169);
-		initializeColor("dark green", 0, 100, 0);
-		initializeColor("dark khaki", 189, 183, 107);
-		initializeColor("dark magenta", 139, 0, 139);
-		initializeColor("dark olive green", 85, 107, 47);
-		initializeColor("dark orange", 255, 140, 0);
-		initializeColor("dark orchid", 153, 50, 204);
-		initializeColor("dark red", 139, 0, 0);
-		initializeColor("dark salmon", 233, 150, 122);
-		initializeColor("dark sea green", 143, 188, 143);
-		initializeColor("dark slate blue", 72, 61, 139);
-		initializeColor("dark slate gray", 47, 79, 79);
-		initializeColor("dark turquoise", 0, 206, 209);
-		initializeColor("dark violet", 148, 0, 211);
-		initializeColor("deep pink", 255, 20, 147);
-		initializeColor("deep sky blue", 0, 191, 255);
-		initializeColor("dim gray", 105, 105, 105);
-		initializeColor("dodger blue", 30, 144, 255);
-		initializeColor("firebrick", 178, 34, 34);
-		initializeColor("floral white", 255, 250, 240);
-		initializeColor("forest green", 34, 139, 34);
-		initializeColor("fuschia", 255, 0, 255);
-		initializeColor("gainsboro", 220, 220, 220);
-		initializeColor("ghost white", 255, 250, 250);
-		initializeColor("gold", 255, 215, 0);
-		initializeColor("goldenrod", 218, 165, 32);
-		initializeColor("gray", 128, 128, 128);
-		initializeColor("green", 0, 128, 0);
-		initializeColor("green yellow", 173, 255, 47);
-		initializeColor("honeydew", 240, 255, 240);
-		initializeColor("hot pink", 255, 105, 180);
-		initializeColor("indian red", 205, 92, 92);
-		initializeColor("ivory", 255, 255, 240);
-		initializeColor("khaki", 240, 230, 140);
-		initializeColor("lavender", 230, 230, 250);
-		initializeColor("lavender blush", 255, 240, 245);
-		initializeColor("lawn green", 124, 252, 0);
-		initializeColor("lemon chiffon", 255, 250, 205);
-		initializeColor("light blue", 173, 216, 230);
-		initializeColor("light coral", 240, 128, 128);
-		initializeColor("light cyan", 224, 255, 255);
-		initializeColor("light goldenrod", 238, 221, 130);
-		initializeColor("light goldenrod yellow", 250, 250, 210);
-		initializeColor("light gray", 211, 211, 211);
-		initializeColor("light green", 144, 238, 144);
-		initializeColor("light pink", 255, 182, 193);
-		initializeColor("light salmon", 255, 160, 122);
-		initializeColor("light sea green", 32, 178, 170);
-		initializeColor("light sky blue", 135, 206, 250);
-		initializeColor("light slate blue", 132, 112, 255);
-		initializeColor("light slate gray", 119, 136, 153);
-		initializeColor("light steel blue", 176, 196, 222);
-		initializeColor("light yellow", 255, 255, 224);
-		initializeColor("lime", 0, 255, 0);
-		initializeColor("lime green", 50, 205, 50);
-		initializeColor("linen", 250, 240, 230);
-		initializeColor("magenta", 255, 0, 255);
-		initializeColor("maroon", 128, 0, 0);
-		initializeColor("medium aquamarine", 102, 205, 170);
-		initializeColor("medium blue", 0, 0, 205);
-		initializeColor("medium orchid", 186, 85, 211);
-		initializeColor("medium purple", 147, 112, 219);
-		initializeColor("medium sea green", 60, 179, 113);
-		initializeColor("medium slate blue", 123, 104, 238);
-		initializeColor("medium spring green", 0, 250, 154);
-		initializeColor("medium turquoise", 72, 209, 204);
-		initializeColor("medium violet red", 199, 21, 133);
-		initializeColor("midnight blue", 25, 25, 112);
-		initializeColor("mint cream", 245, 255, 250);
-		initializeColor("misty rose", 255, 228, 225);
-		initializeColor("moccasin", 255, 228, 181);
-		initializeColor("navajo white", 255, 222, 173);
-		initializeColor("navy", 0, 0, 128);
-		initializeColor("old lace", 253, 245, 230);
-		initializeColor("olive", 128, 128, 0);
-		initializeColor("olive drab", 107, 142, 35);
-		initializeColor("orange", 255, 165, 0);
-		initializeColor("orange red", 255, 69, 0);
-		initializeColor("orchid", 218, 112, 214);
-		initializeColor("pale goldenrod", 238, 232, 170);
-		initializeColor("pale green", 152, 251, 152);
-		initializeColor("pale turquoise", 175, 238, 238);
-		initializeColor("pale violet red", 219, 112, 147);
-		initializeColor("papaya whip", 255, 239, 213);
-		initializeColor("peach puff", 255, 218, 185);
-		initializeColor("peru", 205, 133, 63);
-		initializeColor("pink", 255, 192, 203);
-		initializeColor("plum", 221, 160, 221);
-		initializeColor("powder blue", 176, 224, 230);
-		initializeColor("purple", 128, 0, 128);
-		initializeColor("red", 255, 0, 0);
-		initializeColor("rosy brown", 188, 143, 143);
-		initializeColor("royal blue", 65, 105, 225);
-		initializeColor("saddle brown", 139, 69, 19);
-		initializeColor("salmon", 250, 128, 114);
-		initializeColor("sandy brown", 244, 164, 96);
-		initializeColor("sea green", 46, 139, 87);
-		initializeColor("seashell", 255, 245, 238);
-		initializeColor("sienna", 160, 82, 45);
-		initializeColor("silver", 192, 192, 192);
-		initializeColor("sky blue", 135, 206, 235);
-		initializeColor("slate blue", 106, 90, 205);
-		initializeColor("slate gray", 112, 128, 144);
-		initializeColor("snow", 255, 250, 250);
-		initializeColor("spring green", 0, 255, 127);
-		initializeColor("steel blue", 70, 130, 180);
-		initializeColor("tan", 210, 180, 140);
-		initializeColor("teal", 0, 128, 128);
-		initializeColor("thistle", 216, 191, 216);
-		initializeColor("tomato", 255, 99, 71);
-		initializeColor("turquoise", 64, 224, 208);
-		initializeColor("violet", 238, 130, 238);
-		initializeColor("violet red", 208, 32, 144);
-		initializeColor("wheat", 245, 222, 179);
-		initializeColor("white", 255, 255, 255);
-		initializeColor("white smoke", 245, 245, 245);
-		initializeColor("yellow", 255, 255, 0);
-		initializeColor("yellow green", 154, 205, 50);
+		addColor("alice blue", 240, 248, 255);
+		addColor("antique white", 250, 235, 215);
+		addColor("aqua", 0, 255, 255);
+		addColor("aquamarine", 127, 255, 212);
+		addColor("azure", 240, 255, 255);
+		addColor("beige", 245, 245, 220);
+		addColor("bisque", 255, 228, 196);
+		addColor("black", 0, 0, 0);
+		addColor("blanched almond", 255, 235, 205);
+		addColor("blue", 0, 0, 255);
+		addColor("blue violet", 138, 43, 226);
+		addColor("brown", 165, 42, 42);
+		addColor("burlywood", 222, 184, 135);
+		addColor("cadet blue", 95, 158, 160);
+		addColor("chartreuse", 127, 255, 0);
+		addColor("chocolate", 210, 105, 30);
+		addColor("coral", 255, 127, 80);
+		addColor("cornflower blue", 100, 149, 237);
+		addColor("cornsilk", 255, 248, 220);
+		addColor("cyan", 0, 255, 255);
+		addColor("dark blue", 0, 0, 139);
+		addColor("dark cyan", 0, 139, 139);
+		addColor("dark goldenrod", 184, 134, 11);
+		addColor("dark gray", 169, 169, 169);
+		addColor("dark green", 0, 100, 0);
+		addColor("dark khaki", 189, 183, 107);
+		addColor("dark magenta", 139, 0, 139);
+		addColor("dark olive green", 85, 107, 47);
+		addColor("dark orange", 255, 140, 0);
+		addColor("dark orchid", 153, 50, 204);
+		addColor("dark red", 139, 0, 0);
+		addColor("dark salmon", 233, 150, 122);
+		addColor("dark sea green", 143, 188, 143);
+		addColor("dark slate blue", 72, 61, 139);
+		addColor("dark slate gray", 47, 79, 79);
+		addColor("dark turquoise", 0, 206, 209);
+		addColor("dark violet", 148, 0, 211);
+		addColor("deep pink", 255, 20, 147);
+		addColor("deep sky blue", 0, 191, 255);
+		addColor("dim gray", 105, 105, 105);
+		addColor("dodger blue", 30, 144, 255);
+		addColor("firebrick", 178, 34, 34);
+		addColor("floral white", 255, 250, 240);
+		addColor("forest green", 34, 139, 34);
+		addColor("fuschia", 255, 0, 255);
+		addColor("gainsboro", 220, 220, 220);
+		addColor("ghost white", 255, 250, 250);
+		addColor("gold", 255, 215, 0);
+		addColor("goldenrod", 218, 165, 32);
+		addColor("gray", 128, 128, 128);
+		addColor("green", 0, 128, 0);
+		addColor("green yellow", 173, 255, 47);
+		addColor("honeydew", 240, 255, 240);
+		addColor("hot pink", 255, 105, 180);
+		addColor("indian red", 205, 92, 92);
+		addColor("ivory", 255, 255, 240);
+		addColor("khaki", 240, 230, 140);
+		addColor("lavender", 230, 230, 250);
+		addColor("lavender blush", 255, 240, 245);
+		addColor("lawn green", 124, 252, 0);
+		addColor("lemon chiffon", 255, 250, 205);
+		addColor("light blue", 173, 216, 230);
+		addColor("light coral", 240, 128, 128);
+		addColor("light cyan", 224, 255, 255);
+		addColor("light goldenrod", 238, 221, 130);
+		addColor("light goldenrod yellow", 250, 250, 210);
+		addColor("light gray", 211, 211, 211);
+		addColor("light green", 144, 238, 144);
+		addColor("light pink", 255, 182, 193);
+		addColor("light salmon", 255, 160, 122);
+		addColor("light sea green", 32, 178, 170);
+		addColor("light sky blue", 135, 206, 250);
+		addColor("light slate blue", 132, 112, 255);
+		addColor("light slate gray", 119, 136, 153);
+		addColor("light steel blue", 176, 196, 222);
+		addColor("light yellow", 255, 255, 224);
+		addColor("lime", 0, 255, 0);
+		addColor("lime green", 50, 205, 50);
+		addColor("linen", 250, 240, 230);
+		addColor("magenta", 255, 0, 255);
+		addColor("maroon", 128, 0, 0);
+		addColor("medium aquamarine", 102, 205, 170);
+		addColor("medium blue", 0, 0, 205);
+		addColor("medium orchid", 186, 85, 211);
+		addColor("medium purple", 147, 112, 219);
+		addColor("medium sea green", 60, 179, 113);
+		addColor("medium slate blue", 123, 104, 238);
+		addColor("medium spring green", 0, 250, 154);
+		addColor("medium turquoise", 72, 209, 204);
+		addColor("medium violet red", 199, 21, 133);
+		addColor("midnight blue", 25, 25, 112);
+		addColor("mint cream", 245, 255, 250);
+		addColor("misty rose", 255, 228, 225);
+		addColor("moccasin", 255, 228, 181);
+		addColor("navajo white", 255, 222, 173);
+		addColor("navy", 0, 0, 128);
+		addColor("old lace", 253, 245, 230);
+		addColor("olive", 128, 128, 0);
+		addColor("olive drab", 107, 142, 35);
+		addColor("orange", 255, 165, 0);
+		addColor("orange red", 255, 69, 0);
+		addColor("orchid", 218, 112, 214);
+		addColor("pale goldenrod", 238, 232, 170);
+		addColor("pale green", 152, 251, 152);
+		addColor("pale turquoise", 175, 238, 238);
+		addColor("pale violet red", 219, 112, 147);
+		addColor("papaya whip", 255, 239, 213);
+		addColor("peach puff", 255, 218, 185);
+		addColor("peru", 205, 133, 63);
+		addColor("pink", 255, 192, 203);
+		addColor("plum", 221, 160, 221);
+		addColor("powder blue", 176, 224, 230);
+		addColor("purple", 128, 0, 128);
+		addColor("red", 255, 0, 0);
+		addColor("rosy brown", 188, 143, 143);
+		addColor("royal blue", 65, 105, 225);
+		addColor("saddle brown", 139, 69, 19);
+		addColor("salmon", 250, 128, 114);
+		addColor("sandy brown", 244, 164, 96);
+		addColor("sea green", 46, 139, 87);
+		addColor("seashell", 255, 245, 238);
+		addColor("sienna", 160, 82, 45);
+		addColor("silver", 192, 192, 192);
+		addColor("sky blue", 135, 206, 235);
+		addColor("slate blue", 106, 90, 205);
+		addColor("slate gray", 112, 128, 144);
+		addColor("snow", 255, 250, 250);
+		addColor("spring green", 0, 255, 127);
+		addColor("steel blue", 70, 130, 180);
+		addColor("tan", 210, 180, 140);
+		addColor("teal", 0, 128, 128);
+		addColor("thistle", 216, 191, 216);
+		addColor("tomato", 255, 99, 71);
+		addColor("turquoise", 64, 224, 208);
+		addColor("violet", 238, 130, 238);
+		addColor("violet red", 208, 32, 144);
+		addColor("wheat", 245, 222, 179);
+		addColor("white", 255, 255, 255);
+		addColor("white smoke", 245, 245, 245);
+		addColor("yellow", 255, 255, 0);
+		addColor("yellow green", 154, 205, 50);
 	}
 	
-	private static void initializeColor(String name, int red, int green, int blue) {
+	public static void addColor(String name, int red, int green, int blue) {
 		colorMap.put(name, ((red & 0x0ff) << 16) | ((green & 0x0ff) << 8) | (blue & 0x0ff));
 	}
 	
@@ -467,14 +474,16 @@ public class Zen extends JApplet {
 	}
 	
 	public static boolean isKeyPressed(String key) {
-		if (keyMap.containsKey(key))
+		if (key == null)
+			return false;
+		else if (keyMap.containsKey(key))
 			return Zen.isVirtualKeyPressed(keyMap.get(key));
 		else if (key.length() > 0)
 			return Zen.isKeyPressed(key.charAt(0));
 		return false;
 	}
 	
-	public static boolean isKeyPressed(char key) {
+	private static boolean isKeyPressed(char key) {
 		return getInstanceFromThread().isKeyPressed(key);
 	}
 
@@ -641,8 +650,7 @@ public class Zen extends JApplet {
 		}
 
 		public boolean isKeyPressed(char key) {
-			return key >= 0 && key < keyPressed.length ? keyPressed[key]
-					: false;
+			return key >= 0 && key < keyPressed.length ? keyPressed[key] : false;
 		}
 
 		public boolean isVirtualKeyPressed(int keyCode) {

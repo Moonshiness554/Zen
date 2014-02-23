@@ -7,12 +7,20 @@ public class Circle extends ZenShape {
 		this(0, 0, 1, null);
 	}
 	
+	public Circle(int x, int y) {
+		this(x, y, 1, null);
+	}
+	
 	public Circle(int diameter) {
 		this(0, 0, diameter, null);
 	}
 	
 	public Circle(int diameter, String color) {
 		this(0, 0, diameter, color);
+	}
+	
+	public Circle(int x, int y, String color) {
+		this(x, y, 1, color);
 	}
 	
 	public Circle(int x, int y, int diameter) {
