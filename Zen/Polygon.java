@@ -29,8 +29,46 @@ public class Polygon extends ZenShape {
 	}
 	
 	@Override
-	public void setPosition(int x, int y) {
-		changePosition(x - this.getX(), y - this.getY());
+	public void set(int x, int y) {
+		change(x - this.getX(), y - this.getY());
+	}
+	
+	@Override
+	public void set(double x, double y) {
+		change(x - this.getX(), y - this.getY());
+	}
+	
+	public void setX(int x) {
+		changeX(x - this.getX());
+	}
+	
+	public void setX(double x) {
+		changeX(x - this.getX());
+	}
+	
+	public void setY(int y) {
+		changeY(y - this.getY());
+	}
+	
+	public void setY(double y) {
+		changeY(y - this.getY());
+	}
+	
+	
+	@Override
+	public void change(int dx, int dy) {
+		for (int i = 0 ; i < x.length ; i++) {
+			x[i] += dx;
+			y[i] += dy;
+		}
+	}
+	
+	@Override
+	public void change(double dx, double dy) {
+		for (int i = 0 ; i < x.length ; i++) {
+			x[i] += dx;
+			y[i] += dy;
+		}
 	}
 	
 	@Override
@@ -45,6 +83,18 @@ public class Polygon extends ZenShape {
 			y[i] += amount;
 	}
 
+	@Override
+	public void changeX(double amount) {
+		for (int i = 0 ; i < x.length ; i++)
+			x[i] += amount;
+	}
+	
+	@Override
+	public void changeY(double amount) {
+		for (int i = 0 ; i < y.length ; i++)
+			y[i] += amount;
+	}
+	
 	public Point getPoint(int index) {
 		if (index >= 0 && index < x.length)
 			return new Point(x[index], y[index]);

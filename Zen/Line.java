@@ -29,8 +29,8 @@ public class Line extends ZenShape {
 			double dy = end.getY() - getY();
 			double dx = end.getX() - getX();
 			if (dy != 0) {
-				double invSlope = Math.atan(dy / dx) + ((dx < 0) ? Math.PI : ((dy < 0) ? 2 * Math.PI : 0));
-				int xr = (int) (Math.sin(invSlope) * thickness / 2), yr = (int) (Math.cos(invSlope) * thickness / 2);
+				double theta = Math.atan(dy / dx) + ((dx < 0) ? Math.PI : ((dy < 0) ? 2 * Math.PI : 0));
+				int xr = (int) (Math.sin(theta) * thickness / 2), yr = (int) (Math.cos(theta) * thickness / 2);
 				Zen.fillPolygon(
 						new int[] { this.getX() + xr, end.getX() + xr,
 									end.getX() - xr, this.getX() - xr }, 
@@ -47,6 +47,12 @@ public class Line extends ZenShape {
 		else Zen.drawLine(getX(), getY(), end.getX(), end.getY());
 	}
 	
+	public void rotate(double degrees) {
+		double length = distanceTo(end);
+		double theta = angleTo(end) + Math.toRadians(degrees);
+		end.set(Math.cos(theta) * length + getX(), Math.sin(theta) * length + getY());
+	}
+		
 	public void changeX(int amount) {
 		setX(getX() + amount);
 		end.changeX(amount);

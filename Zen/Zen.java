@@ -1,4 +1,5 @@
 package Zen;
+
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Cursor;
@@ -40,49 +41,8 @@ import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
 import com.firebase.client.ValueEventListener;
 
-/**
- * Easy graphics for Java students and programmers interested in creating Java
- * graphical programs quickly. The more astute programmer may notice some odd
- * design choices - The design decisions (such as using class methods) is there
- * to simplify common use cases. This code is supplied 'as is' and no warranty
- * is provided.
- * 
- * This code is copyright but free to use. It is provided under the scripts are
- * provided under the "Attribution Creative Commons License"
- * http://creativecommons.org/licenses/by/3.0/ You may use it in any way
- * provided you preserve the following copyright statement and included it in
- * copyright information about your program. "Zen Graphics" Copyright Lawrence
- * Angrave 2010.
- * 
- * For an introduction to Zen Graphics Programming see the included examples.
- * 
- * Notes for multi-threaded programmers (advanced). Zen Graphics uses
- * thread-local storage to tie a particular applet instance to a thread. Thus
- * beginning programmers can use static class methods Zen.drawText etc yet the
- * Zen Graphics will still function correctly in multi-threaded environments
- * such as web browser running multiple Zen applets. If you create a multi-threaded
- * programmer you must either always call Zen methods from the original main() thread
- * or, use the Zen.Master object returned by Zen.create().
- * 
- * Startup notes (advanced): If started as an applet the applet container
- * automatically calls init() and typically not in the GUI thread. The init
- * method notices that 'instance' is null and creates a new background thread to
- * call the 'main' method.
- * 
- * If started from a main method. The user's program will at some point try to
- * draw something. This causes getInstance() to be invoked which lazily creates
- * an object instance and calls init. If the applet is stopped we should close
- * the main thread gracefully.
- * 
- * @author angrave
- * 
- */
 @SuppressWarnings("serial")
 public class Zen extends JApplet {
-	
-	/**
-	 * Firebase connectivity.
-	 */
 	
 	private static Firebase fb;
 	private static boolean fb_connected = false;

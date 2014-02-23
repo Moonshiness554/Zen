@@ -11,13 +11,22 @@ public class Shape extends ZenShape {
 		}
 	}
 	
-	public void setPosition(int x, int y) {
-		this.changePosition(x - this.getX(), y - this.getY());
+	public void set(int x, int y) {
+		this.change(x - this.getX(), y - this.getY());
 	}
 	
-	public void changePosition(int dx, int dy) {
+	public void change(int dx, int dy) {
 		for (ZenShape component : components)
-			component.changePosition(dx, dy);
+			component.change(dx, dy);
+	}
+	
+	public void set(double x, double y) {
+		this.change(x - this.getX(), y - this.getY());
+	}
+	
+	public void change(double dx, double dy) {
+		for (ZenShape component : components)
+			component.change(dx, dy);
 	}
 	
 	@Override
