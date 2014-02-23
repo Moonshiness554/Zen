@@ -19,10 +19,17 @@ These instructions are for Eclipse, but they can be easily changed to work with 
 
 ## Laying out a game
 
-Make a class that extends ZenGame - Eclipse should automatically add the methods you need.
+Start by making a new package (right click on the "src" folder, then click "New > Package"). Name it whatever you want to call your game - I'm calling mine "FlappyBird". Every class for your game should go in this package, so when you make a new class you should be right clicking on the "FlappyBird" package and not on "src".
+
+Start by making a class that extends ZenGame - Eclipse automatically adds the methods you need.
 
 ```java
+package FlappyBird;
+
+import Zen.*;
+
 public class FlappyBird extends ZenGame {
+
   public FlappyBird() {
     setFPS(30);               // Change frames per second
     setName("Flappy Bird");   // The name of the window
@@ -39,7 +46,67 @@ public class FlappyBird extends ZenGame {
 }
 ```
 
-```void setup()``` is called once, then ```void loop()``` is called repeatedly. This structure was largely inspired by the setup of the [Arduino IDE](http://arduino.cc).
+When the game is run, ```void setup()``` is called once, then ```void loop()``` is called repeatedly. The constructor ```public FlappyBird()``` is optional, but is useful if you want to change the settings for the window. This structure was largely inspired by the setup of the [Arduino IDE](http://arduino.cc).
+
+Once you have the game laid out, you need to create the moving objects in your game. In Zen, these moving objects are called "sprites", a common term that any student who has done Scratch will be familiar with.
+
+```java
+package FlappyBird;
+
+import Zen.*;
+
+public class Bird extends ZenSprite {
+  public Bird() {
+    // Initialize the bird.
+  }
+
+  public void move() {
+		// How should this sprite move during each step?
+	}
+	
+	public void draw() {
+		// How should this sprite draw itself at each step?
+	}
+}
+```
+Here's a simple example of a complete sprite for the pipes that are constantly approaching the flappy bird. Every step, the pipe moves 2 pixels to the left (at 30 frames per second, this translates to 60 pixels/second). 
+
+```java
+package FlappyBird;
+
+import Zen.*;
+
+public class Pipe extends ZenSprite {	
+	public Pipe() {
+	  setPosition(450, 300);					      // Start this pipe off the screen on the right
+		gap = Zen.getRandomNumber(100, 450);	// Get a random number between 100 and 450
+	}
+	
+	public void move() {
+		changeX(-2);
+	}
+	
+	/**
+	 * How should this object draw itself at each time step?
+	 */
+	public void draw() {
+		Rectangle top = new Rectangle(getX(), 0, 50, gap - 75);
+		top.setColor("light green");
+		Rectangle bottom = new Rectangle(getX(), gap + 75, 50, 550 - (gap + 75));
+		bottom.setColor("light green");
+		Zen.draw(top);
+		Zen.draw(bottom);
+	}
+}
+```
+
+
+
+Curriculum
+===
+We have an extensive curriculum for Zen that is used at my education startup, [TechLab Education](http://www.techlabeducation.com). If you are an education organization or public/private school looking to license our curriculum, send an email to [sales@techlabeducation.com](mailto:sales@techlabeducation.com) for licensing rates. If you are a passionate teacher from an underfunded school district who is looking to start a Java afterschool program or robotics club, **let us know, because we love supporting people like you and would be happy to provide our teaching material to you at no cost.** 
+
+If you can afford it, we'd appreciate it if you help us cover the R&D costs that went into making the curriculum for this. Our curriculum comes with an awesome support staff who can help you with whatever you need, and professional development opportunities through our Saratoga facility.
 
 Contributing
 ===
