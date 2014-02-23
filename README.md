@@ -8,6 +8,7 @@ Zen is a graphics utility for teaching about object-oriented programming and mod
 ## Getting Started
 
 These instructions are for Eclipse, but they can be easily changed to work with any IDE.
+
 1. Download this repository, either using the git command line tool or by clicking on the "download zip" button in the bottom right corner.
 2. Create a Java project in your Eclipse workspace.
 3. Double click on the project to view its content. Right click on the "src" folder, and select "New > Package".
