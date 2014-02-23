@@ -1,14 +1,21 @@
 package Zen;
 
 public class Polygon extends ZenShape {
-	private int[] x;
-	private int[] y;
+	private int[] x, y;
 	
 	public Polygon(Point... points) {
-		this(null, points);
+		this(0, 0, null, points);
 	}
 	
 	public Polygon(String color, Point... points) {
+		this(0, 0, color, points);
+	}
+	
+	public Polygon(int xpos, int ypos, Point... points) {
+		this(xpos, ypos, null, points);
+	}
+	
+	public Polygon(int xpos, int ypos, String color, Point... points) {
 		this.setColor(color);
 		x = new int[points.length];
 		y = new int[points.length];
@@ -16,10 +23,8 @@ public class Polygon extends ZenShape {
 			x[i] = points[i].getX();
 			y[i] = points[i].getY();
 		}
-		if (points.length > 0) {
-			setX(x[0]);
-			setY(y[0]);
-		}
+		setX(xpos);
+		setY(ypos);
 	}
 	
 	@Override

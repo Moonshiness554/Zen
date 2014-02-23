@@ -34,7 +34,7 @@ public class Point {
 	}
 
 	/**
-	 * Set the position of this point to a new (x, y) coordinate.
+	 * Set the position to a new (x, y) coordinate.
 	 */
 	public void set(int x, int y) {
 		setX(x);
@@ -42,7 +42,7 @@ public class Point {
 	}
 	
 	/**
-	 * Set the position of this point to a new (x, y) coordinate.
+	 * Set the position to a new (x, y) coordinate.
 	 */
 	public void set(double x, double y) {
 		setX(x);
@@ -50,7 +50,7 @@ public class Point {
 	}
 	
 	/**
-	 * Change the position of this point in the x direction by dx, and the y direction by dy.
+	 * Change the position in the x direction by dx, and the y direction by dy.
 	 */
 	public void change(int dx, int dy) {
 		changeX(dx);
@@ -58,7 +58,7 @@ public class Point {
 	}
 	
 	/**
-	 * Change the position of this point in the x direction by dx, and the y direction by dy.
+	 * Change the position in the x direction by dx, and the y direction by dy.
 	 */
 	public void change(double dx, double dy) {
 		changeX(dx);
@@ -66,42 +66,42 @@ public class Point {
 	}
 	
 	/**
-	 * Returns the integer part of the x position of this point.
+	 * Returns the integer part of the x position.
 	 */
 	public int getX() {
 		return (int) x;
 	}
 	
 	/**
-	 * Returns the precise x position of this point.
+	 * Returns the precise x position.
 	 */
 	public double rawX() {
 		return x;
 	}
 	
 	/**
-	 * Sets the x position of this point to the specified value.
+	 * Sets the x position to the specified value.
 	 */
 	public void setX(int x) {
 		this.x = x;
 	}
 	
 	/**
-	 * Sets the x position of this point to the specified value.
+	 * Sets the x position to the specified value.
 	 */
 	public void setX(double x) {
 		this.x = x;
 	}
 	
 	/**
-	 * Changes the x position of this point by the given amount.
+	 * Changes the x position by the given amount.
 	 */
 	public void changeX(int amount) {
 		this.x += amount;
 	}
 	
 	/**
-	 * Changes the x position of this point by the given amount.
+	 * Changes the x position by the given amount.
 	 */
 	public void changeX(double amount) {
 		this.x += amount;
@@ -122,28 +122,28 @@ public class Point {
 	}
 	
 	/**
-	 * Sets the y position of this point to the specified value.
+	 * Sets the y position to the specified value.
 	 */
 	public void setY(int y) {
 		this.y = y;
 	}
 	
 	/**
-	 * Sets the y position of this point to the specified value.
+	 * Sets the y position to the specified value.
 	 */
 	public void setY(double y) {
 		this.y = y;
 	}
 	
 	/**
-	 * Changes the y position of this point by the given amount.
+	 * Changes the y position by the given amount.
 	 */
 	public void changeY(int amount) {
 		this.y += amount;
 	}
 	
 	/**
-	 * Changes the y position of this point by the given amount.
+	 * Changes the y position by the given amount.
 	 */
 	public void changeY(double amount) {
 		this.y += amount;

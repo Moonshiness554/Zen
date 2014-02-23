@@ -7,6 +7,14 @@ public abstract class ZenShape extends Point {
 		super(0, 0);
 	}
 	
+	public ZenShape(int x, int y) {
+		super(x, y);
+	}
+	
+	public ZenShape(double x, double y) {
+		super(x, y);
+	}
+	
 	public abstract void draw();
 	
 	public void colorAndDraw() {
