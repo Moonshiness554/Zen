@@ -27,6 +27,18 @@ public class Text extends ZenShape {
 		setColor(color);
 	}
 	
+	public void setText(String text) {
+		this.text = text;
+	}
+	
+	public void setFont(String font) {
+		this.font = font;
+	}
+	
+	public void setSize(int size) {
+		this.size = size;
+	}
+	
 	@Override
 	public void draw() {
 		Zen.setFont(font, size);

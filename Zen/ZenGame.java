@@ -27,8 +27,23 @@ public abstract class ZenGame {
 	}
 	
 	public void addSprite(ZenSprite sprite) {
-		if (sprites != null)
-			sprites.add(sprite);
+		if (sprites != null) {
+			if (sprites.size() == 0)
+				sprites.add(sprite);
+			else {
+				for (int i = 0 ; i < sprites.size() ; i++) {
+					if (sprites.get(i).getLayer() > sprite.getLayer()) {
+						sprites.add(i, sprite);
+						break;
+					}
+					else if (i + 1 == sprites.size()) {
+						sprites.add(sprite);
+						break;
+					}
+				}
+			}			
+			
+		}
 	}
 	
 	public void clearSprites() {

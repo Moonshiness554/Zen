@@ -2,6 +2,8 @@ package Zen;
 
 public abstract class ZenSprite extends Point {
 	
+	private int layer = 1;
+	
 	public ZenSprite() {
 		super();
 	}
@@ -22,5 +24,13 @@ public abstract class ZenSprite extends Point {
 	 */
 	public double distanceTo(ZenSprite other) {
 		return Math.sqrt(Math.pow(this.rawX() - other.rawX(), 2) + Math.pow(this.rawY() - other.rawY(), 2));
+	}
+
+	public int getLayer() {
+		return layer;
+	}
+
+	public void setLayer(int layer) {
+		this.layer = layer;
 	}
 }

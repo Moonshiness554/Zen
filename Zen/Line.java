@@ -26,10 +26,10 @@ public class Line extends ZenShape {
 
 	public void draw() {
 		if (thickness > 1) {
-			double dy = end.getY() - getY();
-			double dx = end.getX() - getX();
+			double dy = end.rawY() - rawY();
+			double dx = end.rawX() - rawX();
 			if (dy != 0) {
-				double theta = Math.atan(dy / dx) + ((dx < 0) ? Math.PI : ((dy < 0) ? 2 * Math.PI : 0));
+				double theta = angleTo(end);
 				int xr = (int) (Math.sin(theta) * thickness / 2), yr = (int) (Math.cos(theta) * thickness / 2);
 				Zen.fillPolygon(
 						new int[] { this.getX() + xr, end.getX() + xr,
@@ -50,7 +50,17 @@ public class Line extends ZenShape {
 	public void rotate(double degrees) {
 		double length = distanceTo(end);
 		double theta = angleTo(end) + Math.toRadians(degrees);
-		end.set(Math.cos(theta) * length + getX(), Math.sin(theta) * length + getY());
+		end.set(Math.cos(theta) * length + rawX(), Math.sin(theta) * length + rawY());
+	}
+	
+	public void rotateTo(double degrees) {
+		double length = distanceTo(end);
+		double theta = Math.toRadians(degrees);
+		end.set(Math.cos(theta) * length + rawX(), Math.sin(theta) * length + rawY());
+	}
+	
+	public double angle() {
+		return angleTo(end);
 	}
 		
 	public void changeX(int amount) {

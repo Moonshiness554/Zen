@@ -25,7 +25,7 @@ public class Rectangle extends ZenShape {
 	}
 
 	public void draw() {
-		Zen.fillRect(getX(), getY(), getWidth(), getHeight());
+		Zen.fillRect(getX(), getY(), width, height);
 	}
 	
 	public void setDimensions(int width, int height) {
