@@ -129,6 +129,28 @@ Check the documentation for more information on the different shapes and constru
 Zen.draw(c);
 ```
 
+### Positioning things
+
+```ZenShape``` and ```ZenSprite``` inherit a number of methods from ```Point```, which stores coordinates in their precise (double) form. This means that for basically every shape and sprite in ZenGame, you can call the functions:
+
+```java
+Circle c = new Circle(50, 70, 20);
+c.setX( 60 );		// Sets the x position to 60
+c.changeX( -10 );	// Changes the x position by -10, so it is now 50
+c.setY( 100 );
+c.changeY( 20 );
+
+c.set( 200, 250 );	// Sets the x, y position of the circle to (200, 250)
+c.change( 5, 4 );	// Changes the x position by 5 and the y position by 4
+```
+
+There are also a couple math functions in Zen right now, with many more on the way.
+```java
+Rectangle r = new Rectangle(40, 20, 100, 100);
+double dist = c.distanceTo(r);		// The distance between the center of the circle and the rectangle
+double angle = c.angleTo(r);		// The angle of elevation or depression to reach r
+```
+
 ### Coloring shapes
 
 Coloring in Zen works as if you are an artist with a palette of colors. Before you draw something, you can select the color you want to draw with using
@@ -149,13 +171,70 @@ To find out if a key is pressed, use ```Zen.isKeyPressed( key )```. The key is a
 Zen.isKeyPressed("a")
 ```
 
-### There's more!
+### Getting mouse motion
 
-This readme is a bit incomplete - I'll update it with
+To get the mouse position, use ```Zen.getMouseX()``` and ```Zen.getMouseY()```. To get the *last position that the mouse clicked on*, use ```Zen.getMouseClickX()``` and ```Zen.getMouseClickY()```.
 
-[ ] - how to connect to Firebase
-[ ] - how to use the mouse
-[ ] - how to handle games that lag
+I'll add a couple examples here of how to tightly integrate clicks and mouse motion into your game.
+
+### Firebase
+
+You can use Zen to share data over the Internet with other Zen instances. This means that multiple students at different computers can all hook into a database to make their games truly multiplayer. This is, by far, the aspect of Zen that students enjoy the most.
+
+To start, you need to [make an account on Firebase.com](https://firebase.com). Firebase is a free BAAS (backend as a service) - basically, they host your data in the cloud and make it accessible in real time. Once you're in your account, create a new Firebase. Every Firebase gets a unique URL like "voldemort.firebaseio.com". 
+
+Once you have that Firebase set up, you can connect to it with Zen with one line.
+```java
+Zen.connect("voldemort");
+```
+This connects to the Firebase at voldemort.firebaseio.com. If you're using ZenGame, this line should go in your ```void setup()``` function. The game will pause for around 2 seconds as it makes the connection.
+
+Now that you're connected, you can write data to Firebase with
+
+```java
+Zen.write("foo", "bar");	// Write a String
+Zen.write("baz", 5);		// Write an integer
+Zen.write("quux", 4.129502);	// Write a double
+Zen.write("happy", true);	// Write a boolean
+```
+Any other Zen application that has performed ```Zen.connect("voldemort")``` can now read the data you just stored:
+
+```java
+String message = Zen.read("foo");	// message is now "bar"
+int position = Zen.readInt("baz");	// position is now 5
+boolean q = Zen.readBoolean("happy"); 	// q is now true
+double foo = Zen.readDouble("bar");	// foo is now 4.129502
+```
+
+One thing to note is that data propagates almost instantly. This means that the time between one person doing ```Zen.write``` and another person being able to read it with ```Zen.read``` is so short (~ 200 ms) that it will appear to happen instantaneously.
+
+### Frame rate
+
+Sometimes you have games that are doing a lot of collision detection or drawing in each frame. ZenGame automatically does double buffering for you to reduce flicker, but if you're still experiencing a flicker effect, you should adjust the FPS by calling
+
+```java
+Zen.setFPS(15);
+```
+If you're not using ZenGame, i.e. using only the core Zen class, you would structure your application as
+
+```java
+Zen.create(WIDTH, HEIGHT);
+// do some setup
+
+// main game loop
+while (! done) {
+	// do your per-frame computing
+	Zen.buffer( milliseconds );
+}
+```
+The ```Zen.buffer( ms )``` function flips the buffer and sleeps for the specified number of milliseconds. If you want to do some precomputing on each frame, you can split apart this instruction into
+```java
+Zen.flipBuffer();
+// precompute the next frame
+Zen.sleep( ms );
+```
+
+You can also hook in a Timer object to [schedule a TimerTask to run at a fixed rate](http://www.tutorialspoint.com/java/util/timer_scheduleatfixedrate_delay.htm), but this is beyond the scope of what I normally cover with my students. It is very rare to have a student make a game which takes more than 2 - 5 ms to compute each frame, but whenever there is such a student, they're usually skilled enough to figure out Timers and TimerTask.
 
 ## Curriculum
 
